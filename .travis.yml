@@ -7,9 +7,14 @@ services:
 
 before_install:
   - docker build -t crazygoatstudio/apigator .
-  - docker run -it --rm --name travis-eve crazygoatstudio/apigator
+  - docker run -p 5000:5000 --rm --name travis-eve crazygoatstudio/apigator
   - docker ps -a
+  - curl -i http://127.0.0.1:5000
 #  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 
 script:
 #  - bundle exec rake test
+
+after_script:
+ - docker stop travis-eve
+ - docker rm travis-eve
