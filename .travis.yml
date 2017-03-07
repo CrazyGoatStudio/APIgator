@@ -11,8 +11,8 @@ before_install:
 
 script:
 #  - bundle exec rake test
-  - curl -i http://localhost:5000
-  - curl -i http://localhost:5000/lists
+  - curl -i http://localhost:5000/?pretty
+  - curl -i http://localhost:5000/lists?pretty
 
 after_script:
  - docker stop travis-eve
