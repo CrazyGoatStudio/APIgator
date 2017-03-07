@@ -6,8 +6,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t CrazyGoatStudio/apigator .
-  - docker run -it --rm --name travis-eve CrazyGoatStudio/apigator 
+  - docker build -t crazygoatstudio/apigator .
+  - docker run -it --rm --name travis-eve crazygoatstudio/apigator
   - docker ps -a
 #  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
 
