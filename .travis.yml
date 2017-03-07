@@ -7,13 +7,14 @@ services:
 
 before_install:
   - docker build -t crazygoatstudio/apigator .
-  - docker run -d -p 5000:5000 --name travis-eve crazygoatstudio/apigator
+  - docker run -d -p 0.0.0.0:5000:5000 --name travis-eve crazygoatstudio/apigator
   - docker ps -a
+  - sleep 15
 
 script:
 #  - bundle exec rake test
-  - curl -i http://0.0.0.0:5000
-  - curl -i http://127.0.0.1:5000/lists
+  - curl -i http://localhost:5000
+  - curl -i http://localhost:5000/lists
 
 after_script:
  - docker stop travis-eve
